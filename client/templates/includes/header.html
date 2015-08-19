@@ -1,0 +1,57 @@
+<template name="header">
+    <header class="main-header">
+            <a href="#" class="page-back" id="back">
+                <svg class="icon icon-prev">
+                    <use xlink:href="#icon-prev"></use>
+                </svg>
+            </a>
+        <div class="main-header__wrapper">
+            {{#if documentTitle}}<h1>{{documentTitle}}</h1>{{/if}}
+            {{#if documentSubTitle}}<h2>{{documentSubTitle}}</h2>{{/if}}
+        </div>
+    </header>
+    <nav class="nav">
+        <ul>
+            <li>
+                <a href="{{pathFor 'home'}}">
+                    <div class="nav__container">
+                        <svg class="icon icon-calendar">
+                            <use xlink:href="#icon-calendar"></use>
+                        </svg>
+                        <span>Boerschappen</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="{{pathFor 'productsPage'}}">
+                    <div class="nav__container">
+                        <svg class="icon icon-apple">
+                            <use xlink:href="#icon-apple"></use>
+                        </svg>
+                        <span>Producten</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="{{pathFor 'announcements'}}">
+                    <div class="nav__container">
+                        <svg class="icon icon-email">
+                            <use xlink:href="#icon-email"></use>
+                        </svg>
+                        <span>Mededelingen</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="{{pathFor 'loginButtons'}}">
+                    <div class="nav__container">
+                        <svg class="icon icon-user">
+                            <use xlink:href="#icon-user"></use>
+                        </svg>
+                        <span>Account</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</template>

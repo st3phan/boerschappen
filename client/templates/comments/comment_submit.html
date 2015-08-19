@@ -1,0 +1,9 @@
+<template name="commentSubmit">
+    <form class="form">
+        <div class="form-group {{errorClass 'body'}}">
+            <textarea name="body" id="body" placeholder="Geef hier je reactie."></textarea>
+            <span class="help-block">{{errorMessage 'body'}}</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Plaats reactie</button>
+    </form>
+</template>

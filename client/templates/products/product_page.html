@@ -1,0 +1,15 @@
+<template name="productPage">
+    {{setTitle name}}
+    <div class="p-product">
+        <article class="product-details">
+            <h1>{{name}}</h1>
+            <h2>{{origin}}</h2>
+            <p>{{description}}</p>
+        </article>
+        {{#if isInRole 'admin'}}
+            <div class="admin-buttons">
+                <a href="{{pathFor 'productEdit'}}" class="btn">Wijzigen</a>
+            </div>
+        {{/if}}
+    </div>
+</template>

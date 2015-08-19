@@ -1,0 +1,44 @@
+.btn,
+.button {
+    @include user-select(none);
+    @include appearance(none);
+    @include box-sizing(border-box);
+    @include border-radius($border-radius);
+    position: relative;
+    display: inline-block;
+    min-width: 140px;
+    margin: 0;
+    padding: 7px 15px 6px;
+    vertical-align: middle;
+    font-size: rem-calc($columbian);
+    font-weight: bold;
+    line-height: 1.6;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    outline: 0;
+
+    &, &.-primary {
+        //@include box-shadow(0 5px 0 0 $pacific-blue);
+        background-color: $killarney;
+        color: $white;
+
+        // &:hover {
+        //     @include box-shadow(0 3px 0 0 $pacific-blue);
+        //     top: 2px;
+        // }
+    }
+
+    &.-secondary {
+        background-color: $white;
+        color: $killarney;
+    }
+
+    &.-block {
+        display: block;
+    }
+}

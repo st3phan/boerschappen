@@ -1,0 +1,22 @@
+.comment {
+    @extend .module;
+
+    & + .comment {
+        margin: $distance 0;
+    }
+
+    &__meta {
+        margin-bottom: $distance/4;
+    }
+
+    &__date {
+        display: block;
+        margin: 2px 0 $distance/2;
+        font-size: rem-calc($english);
+        color: $text-color;
+    }
+
+    &__author {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,72 @@
+<template name="eventSubmit">
+    {{setTitle title 'Nieuwe boerschappen'}}
+    <div class="p-admin">
+        <form class="form">
+            <fieldset>
+                <div class="form-group {{errorClass 'title'}}">
+                    <label for="title">Titel</label>
+                    <input name="title" id="title" type="text" value="" placeholder="Week / Naam" class="form-control"/>
+                    <span class="help-block">{{errorMessage 'title'}}</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="fieldset-header">Data</h2>
+                <div class="form-group {{errorClass 'dates'}}">
+                    {{#unless selectedDates.length}}
+                        <p>Je hebt nog geen data geselecteeerd.</p>
+                    {{/unless}}
+
+                    {{#if selectedDates.length}}
+                        <ul class="list-group">
+                        {{#each selectedDates}}
+                            <li class="list-group-item">
+                                <input type="hidden" name="selected_dates[]" value="{{.}}">
+                                {{.}} <a href="#" class="remove-date" data-date="{{.}}">(verwijderen)</a>
+                            </li>
+                        {{/each}}
+                        </ul>
+                    {{/if}}
+                    <div class="btn btn-default datepicker">Selecteer een datum</div>
+                    <span class="help-block">{{errorMessage 'dates'}}</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="fieldset-header">Producten</h2>
+                <div class="form-group {{errorClass 'products'}}">
+                    <h4 class="fieldset-header">Geselecteerde producten</h4>
+                    {{#if selectedProducts.count}}
+                        <ul class="products">
+                        {{#each selectedProducts}}
+                            <li class="list-group-item">
+                                <input type="hidden" name="selected_products[]" value="{{_id}}">
+                                {{name}} - {{origin}}
+                                <a href="#" class="remove-product" data-product-id="{{_id}}">
+                                    <svg class="icon icon-delete">
+                                        <use xlink:href="#icon-delete"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        {{/each}}
+                        </ul>
+                    {{else}}
+                        <p>Je hebt nog geen producten geselecteeerd.</p>
+                    {{/if}}
+                </div>
+                <div class="form-group">
+                    <h4 class="fieldset-header">Beschikbare producten</h4>
+                    <select name="products" multiple>
+                        {{#each products}}
+                            <option value="{{_id}}">{{name}} - {{origin}}</option>
+                        {{/each}}
+                    </select>
+
+                    <span class="help-block">{{errorMessage 'products'}}</span>
+                    <button class="add-products btn btn-default">Product(en) toevoegen</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <button type="submit" class="btn">Opslaan</button>
+            </fieldset>
+        </form>
+    </div>
+</template>

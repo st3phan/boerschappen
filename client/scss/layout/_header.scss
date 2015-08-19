@@ -1,0 +1,172 @@
+.main-header {
+    @include border-radius(0% 0% 50% 50%/0% 0% 10% 10%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9997;
+    height: $nav-height;
+    background-color: $black;
+
+    &__wrapper {
+        @include center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    h1 {
+        color: $white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: rem-calc($great-primer);
+        white-space: nowrap;
+        line-height: 1;
+    }
+
+    h2 {
+        color: rgba($white, .5);
+        text-transform: uppercase;
+        text-align: center;
+        font-size: rem-calc($columbian);
+        white-space: nowrap;
+        line-height: 1;
+    }
+
+    .page-back {
+        z-index: 9999;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 5px;
+        overflow: hidden;
+        width: 50px;
+        text-align: center;
+        background-color: $black;
+
+        .icon {
+            @include center;
+        }
+    }
+}
+
+// .main-header {
+//     @include clear;
+//     @include transition(transform 0.5s);
+//     @include translateZ(0);
+//     @include backface-visibility(hidden);
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     z-index: 10;
+//     width: 100%;
+//     //height: $header-height;
+//     background-color: $cape-cod;
+//     color: $white;
+
+//     .-nav-is-visible & {
+//         @include translateY(80px);
+
+//         @media #{$large-up} {
+//             @include translateY(170px);
+//         }
+//     }
+
+//     .brand {
+//         display: none;
+//         text-align: center;
+//         text-transform: uppercase;
+//         font-size: rem-calc($columbian);
+//         font-weight: bold;
+//         color: $heather;
+//     }
+// }
+
+// .nav-trigger {
+//     position: relative;
+//     float: left;
+//     width: 70px;
+//     //height: $header-height;
+//     overflow: hidden;
+//     text-indent: 100%;
+//     white-space: nowrap;
+//     color: $white;
+
+//     span,
+//     span:before,
+//     span:after {
+//         @include backface-visibility(hidden);
+//         position: absolute;
+//         width: 30px;
+//         height: 3px;
+//         background-color: $white;
+//     }
+
+//     span {
+//         @include transition(background 0.2s 0.5s);
+//         top: 26px;
+//         left: 20px;
+
+//         .-nav-is-visible & {
+//             background-color: rgba($white, 0);
+//         }
+//     }
+
+//     span:before,
+//     span:after {
+//         @include transition(transform 0.2s 0.5s);
+//         content: '';
+//         left: 0;
+
+//         .-nav-is-visible & {
+//             background-color: $white;
+//         }
+//     }
+
+//     span:before {
+//         bottom: 8px;
+
+//         .-nav-is-visible & {
+//             @include transform(translateY(8px) rotate(-45deg));
+//         }
+//     }
+
+//     span:after {
+//         top: 8px;
+
+//         .-nav-is-visible & {
+//             @include transform(translateY(-8px) rotate(45deg));
+//         }
+//     }
+// }
+
+.login {
+    position: relative;
+    float: right;
+    width: 30px+($gutter*2);
+    //height: $header-height;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    
+    .icon {
+        @include translate(-50%,-50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+.logout {
+    position: relative;
+    float: right;
+    margin-right: $gutter;
+    // line-height: $header-height;
+    // height: $header-height;
+    overflow: hidden;
+    white-space: nowrap;
+
+    a {
+        display: inline-block;
+    }
+}

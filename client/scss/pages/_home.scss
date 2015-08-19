@@ -1,0 +1,32 @@
+.p-home {
+    padding: $distance $gutter;
+}
+
+
+.events-list {
+    text-align: center;
+
+    &__event {
+        @extend .module;
+        padding: 0;
+
+        & + .events-list__event {
+            margin-top: $distance;
+        }
+
+        a {
+            position: relative;
+            display: block;
+            padding: $distance/2 $gutter/2;
+        }
+
+        &__dates {
+
+            li {
+                display: block;
+                font-size: rem-calc($paragon);
+                color: $text-color;
+            }
+        }
+    }
+}

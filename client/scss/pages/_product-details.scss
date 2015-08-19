@@ -1,0 +1,7 @@
+.p-product {
+    padding: $distance $gutter;
+}
+
+.product-details {
+    @extend .content;
+}

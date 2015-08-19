@@ -1,0 +1,19 @@
+<template name="home">
+    {{setTitle 'Boerschappen'}}
+    <div class="p-home">
+        <section class="events-list">
+            {{#each .}}
+                <article class="events-list__event">
+                    <a href="{{pathFor 'eventPage' }}">
+                        <h1>{{title}}</h1>
+                        <ol class="events-list__event__dates">
+                            {{#each dates}}
+                                <li>{{.}}</li>
+                            {{/each}}
+                        </ol>
+                    </a>
+                </article>
+            {{/each}}
+        </section>
+    </div>
+</template>

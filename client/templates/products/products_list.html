@@ -1,0 +1,38 @@
+<template name="productsList">
+    <section class="event__products">
+        {{#each products}}
+            <article class="product">
+                {{#if currentUser}}
+                <div class="product__voting -down">
+                    <div class="downvote {{downvotedClass}}">
+                        <svg class="icon icon-thumb-down">
+                            <use xlink:href="#icon-thumb-down"></use>
+                        </svg>
+                    </div>
+                    <span class="downvotes">
+                        {{votes.downvotes}}
+                    </span>
+                </div>
+                {{/if}}
+                <header class="product__header">
+                    <a href="{{pathFor 'productPage' }}">
+                        <h1>{{name}}</h1>
+                        <h2>{{origin}}</h2>
+                    </a>
+                </header>
+                {{#if currentUser}}
+                <div class="product__voting -up">
+                    <div class="upvote {{upvotedClass}}">
+                        <svg class="icon icon-thumb-up">
+                            <use xlink:href="#icon-thumb-up"></use>
+                        </svg>
+                    </div>
+                    <span class="upvotes">
+                        {{votes.upvotes}}
+                    </span>
+                </div>
+                {{/if}}
+            </article>
+        {{/each}}
+    </section>
+</template>

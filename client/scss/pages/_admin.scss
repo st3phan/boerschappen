@@ -1,0 +1,26 @@
+.p-admin {
+    padding: $distance $gutter;
+
+    nav {
+        @extend .module;
+    }
+
+    li + li {
+        margin-top: $distance/2;
+    }
+
+    .dates,
+    .products {
+
+        .icon {
+            width: 12px;
+            height: 12px;
+            margin: -2px 0 0 5px;
+        }
+
+        li {
+            margin-left: $gutter*2;
+            list-style-type: disc;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<template name="adminProducts">
+    <div class="p-admin">
+        {{setTitle 'Producten'}}
+        <div class="module">
+            <ol>
+                <li><a href="{{pathFor 'productSubmit'}}" class="btn -block">Nieuw product</a></li>
+                {{#each products}}
+                    <li><a href="{{pathFor 'productEdit'}}" class="btn -secondary -block">{{name}}</a></li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</template>

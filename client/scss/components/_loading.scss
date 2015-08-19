@@ -1,0 +1,27 @@
+@include keyframes(flash) {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.app-loading {
+    z-index: 9998;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($black, .8);
+
+    &:before {
+        @include animation(flash 2s infinite);
+        @include center;
+        content: 'Laden...';
+        color: $white;
+        font-size: rem-calc($double-english);
+    }
+}

@@ -1,0 +1,176 @@
+// @include keyframes(move) {
+//     0% {
+//         left: 0;
+//         margin-bottom: -10px;
+//     }
+//     10% {
+//         margin-bottom: -3px;
+//     }
+//     20% {
+//         margin-bottom: 0;
+//     }
+//     100% {
+//         left: 50%;
+//     }
+// }
+
+.nav {
+    @include clear;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10001;
+    width: 100%;
+    height: $nav-height;
+    line-height: 1;
+
+    &:before {
+        @include translateX(-50%);
+        //@include animation(move 40s 1s ease-out forwards);
+        z-index: -1;
+        content: "";
+        position: absolute;
+        bottom: $nav-height - 2px;
+        left: 50%;
+        width: 103px;
+        height: 22px;
+        background-image: url(/img/loading_logo.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    ul {
+        @include border-radius(50% 50% 0% 0%/10%);
+        width: 100%;
+        height: inherit;
+        display: table;
+        table-layout: fixed;
+        background-color: $black;
+    }
+
+    li {
+        display: table-cell;
+        height: inherit;
+        vertical-align: middle;
+    }
+
+    a {
+        position: relative;
+        display: block;
+        height: inherit;
+        text-align: center;
+
+        span {
+            display: block;
+            margin-top: 2px;
+            font-size: rem-calc($pica);
+            color: $white;
+        }
+
+        .icon {
+            fill: $white;
+            //stroke: $white;
+            height: 25px;
+        }
+    }
+
+    &__container {
+        @include translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+// .nav-container {
+//     @include perspective(1000px);
+//     @include translateY(-100%);
+//     @include transition(transform 0.5s 0s, visibility 0s 0.5s);
+//     z-index: 100;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 80px;
+//     visibility: hidden;
+//     background-color: $black;
+
+//     @media #{$large-up} {
+//         height: 170px;
+//     }
+
+//     .-nav-is-visible & {
+//         visibility: visible;
+//         @include translateY(0);
+//         @include transition(transform 0.5s 0s, visibility 0.5s 0s);
+//     }
+// }
+
+// .nav {
+//     @include translateZ(0);
+//     @include backface-visibility(hidden);
+//     @include transform-origin(center, bottom);
+//     @include rotateX(90deg);
+//     @include transition(transform 0.5s);
+//     position: relative;
+//     height: inherit;
+//     background-color: $cape-cod;
+
+//     .-nav-is-visible & {
+//         @include translateZ(0);
+//     }
+
+//     &:after {
+//         @include opacity(1);
+//         @include transition(opacity 0.5s 0s, visibility 0.5s 0s);
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         height: 100%;
+//         width: 100%;
+//         background-color: $black;
+//         visibility: visible;
+
+//         .-nav-is-visible & {
+//             @include opacity(0);
+//             @include transition(opacity 0.5s 0s, visibility 0s 0.5s);
+//             visibility: hidden;
+//         }
+//     }
+
+//     ul {
+//         width: 100%;
+//         height: inherit;
+//         display: table;
+//         table-layout: fixed;
+//     }
+
+//     li {
+//         display: table-cell;
+//         height: inherit;
+
+//         &:nth-child(1) {
+//             background-color: $nevada;
+//         }
+//         &:nth-child(2) {
+//             background-color: $hit-gray;
+//         }
+//         &:nth-child(1) {
+//             background-color: $heather;
+//         }
+//     }
+
+//     a {
+//         position: relative;
+//         display: block;
+//         height: inherit;
+
+//         .icon {
+//             position: absolute;
+//             top: 50%;
+//             left: 50%;
+//             @include translate(-50%, -50%);
+//         }
+//     }
+// }

@@ -1,0 +1,42 @@
+<template name="eventPage">
+    {{setTitle title dates}}
+
+    <div class="p-event">
+
+        <article class="event">
+
+            {{>productsList}}
+
+            <div class="subhead">
+                <a href="#" class="event__toggle-comments-submit" id="toggle-comments-submit">
+                    <h1>Reacties</h1>
+                    <svg class="icon icon-add">
+                        <use xlink:href="#icon-add"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="event__comments-submit" id="comments-submit">
+                {{#if currentUser}}
+                    {{> commentSubmit}}
+                {{else}}
+                    <p><a href="{{pathFor 'loginButtons' }}">Log in</a> om een reactie te plaatsen.</p>
+                {{/if}}
+            </div>
+        
+            <ul class="event__comments">
+                {{#each comments}}
+                    {{> commentItem}}
+                {{/each}}
+            </ul>
+        </article>
+
+        {{#if isInRole 'admin'}}
+            <div class="admin-buttons">
+                <a href="{{pathFor 'eventEdit'}}" class="btn">Wijzigen</a>
+            </div>
+        {{/if}}
+
+    </div>
+
+</template>

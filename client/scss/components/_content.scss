@@ -1,0 +1,8 @@
+.content {
+    @extend .module;
+    padding: $distance/2 $gutter/2;
+
+    p {
+        margin-top: $distance/2;
+    }
+}

@@ -1,0 +1,33 @@
+.page-header {
+    margin: 0 0 $distance*2;
+    text-align: center;
+
+    &__dates {
+
+        li {
+            display: block;
+            font-size: rem-calc($paragon);
+            color: $text-color;
+        }
+    }
+}
+
+.subhead {
+    @extend .module;
+    @include clear;
+    margin: $distance*2 0 $distance;
+    background-color: rgba($black, .8);
+
+    h1 {
+        float: left;
+        font-size: rem-calc($columbian);
+        text-transform: uppercase;
+        color: $subheader-color;
+    }
+
+    .icon {
+        float: right;
+        margin-top: -2px;
+        fill: $subheader-color;
+    }
+}

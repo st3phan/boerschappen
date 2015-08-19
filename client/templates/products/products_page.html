@@ -1,0 +1,13 @@
+<template name="productsPage">
+    {{setTitle 'Producten'}}
+    <section class="p-products">
+        {{#each .}}
+            <article class="product">
+                <a href="{{pathFor 'productPage' }}">
+                    <h1>{{name}}</h1>
+                    <h2>{{origin}}</h2>
+                </a>
+            </article>
+        {{/each}}
+    </section>
+</template>

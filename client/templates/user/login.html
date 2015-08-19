@@ -1,0 +1,145 @@
+<template name="loginButtons">
+    <div class="p-sign-in">
+        {{#if currentUser}}
+            {{#unless loggingIn}}
+                {{> loginButtonsLoggedIn}}
+            {{/unless}}
+        {{else}}
+            {{> loginButtonsLoggedOut}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="loginButtonsLoggedIn">
+    <div class="login-form">
+        {{> loginButtonsMessages}}
+        <p>Hallo {{displayName}}</p>
+        {{#if isInRole 'admin'}}
+            <a href="{{pathFor 'admin'}}" class="btn -secondary">Admin</a>
+        {{/if}}
+        <a href="#" id="logout-link" class="btn">Uitloggen</a>
+    </div>
+</template>
+
+<template name="loginButtonsLoggedOut">
+    <div class="login-form">
+        {{#if inResetPasswordFlow}}
+            {{> _resetPasswordForm}}
+        {{else}}
+            {{#if inForgotPasswordFlow}}
+                {{> _forgotPasswordForm}}
+            {{else}}
+                {{> loginButtonsLogin}}
+            {{/if}}
+        {{/if}}
+        {{#if isLoading}}
+            <!-- {{> loginLoading}} -->
+        {{/if}}
+    </div>
+</template>
+
+<template name="loginButtonsLogin">
+    <h1 class="login-form__header like-h2">
+        {{#if inSignupFlow}}
+            {{setTitle 'Registreren' }}
+            Registreren
+        {{else}}
+            {{setTitle 'Inloggen'}}
+            Inloggen
+        {{/if}}
+    </h1>
+    <p>{{> loginButtonsMessages}}</p>
+    <div class="login-form__inputs">
+        {{#if inSignupFlow}}
+            <div class="login-form__input">
+                <svg class="icon icon-user">
+                    <use xlink:href="#icon-user"></use>
+                </svg>
+                <input type="text" id="login-name" placeholder="Naam" />
+            </div>
+        {{/if}}
+        <div class="login-form__input">
+            <svg class="icon icon-user">
+                <use xlink:href="#icon-user"></use>
+            </svg>
+            <input type="text" id="login-email" placeholder="E-mail adres" />
+        </div>
+        <div class="login-form__input">
+            <svg class="icon icon-lock">
+                <use xlink:href="#icon-lock"></use>
+            </svg>
+            <input type="password" id="login-password" placeholder="Wachtwoord" />
+        </div>
+        {{#if inSignupFlow}}
+            <div class="login-form__input">
+                <svg class="icon icon-lock">
+                    <use xlink:href="#icon-lock"></use>
+                </svg>
+                <input type="password" id="login-password-again" placeholder="Wachtwoord (nogmaals)" />
+            </div>
+        {{/if}}
+    </div>
+    <button type="submit" class="btn" id="login-buttons-password">
+        {{#if inSignupFlow}}
+            Registreren
+        {{else}}
+            Inloggen
+        {{/if}}
+    </button>
+    {{#if inLoginFlow}}
+        <a href="#" class="login-form__forgot" id="forgot-password-link">Vergeten?</a>
+        <a href="#" class="login-form__register" id="signup-link">Registeren?</a>
+    {{/if}}
+    {{#if inSignupFlow}}
+        {{> loginButtonsBackToLoginLink}}
+    {{/if}}
+</template>
+
+<template name="_forgotPasswordForm">
+    <h1 class="login-form__header like-h2">Wachtwoord vergeten</h1>
+    {{> loginButtonsMessages}}
+    <div class="login-form__input">
+        <svg class="icon icon-user">
+            <use xlink:href="#icon-user"></use>
+        </svg>
+        <input type="email" id="forgot-password-email" placeholder="E-mail adres" />
+    </div>
+    <button type="submit" class="btn" id="login-buttons-forgot-password">Wachtwoord resetten</button>
+    {{> loginButtonsBackToLoginLink}}
+</template>
+
+<template name="_resetPasswordForm">
+    <h1 class="login-form__header like-h2">Nieuw wachtwoord kiezen</h1>
+    {{> loginButtonsMessages}}
+    <div class="login-form__input">
+        <svg class="icon icon-lock">
+            <use xlink:href="#icon-lock"></use>
+        </svg>
+        <input type="password" id="login-password" placeholder="Wachtwoord" />
+    </div>
+    <div class="login-form__input">
+        <svg class="icon icon-lock">
+            <use xlink:href="#icon-lock"></use>
+        </svg>
+        <input type="password" id="login-password-again" placeholder="Wachtwoord (nogmaals)" />
+    </div>
+    <button type="submit" class="btn" id="login-buttons-reset-password">Wachtwoord resetten</button>
+    {{> loginButtonsBackToLoginLink}}
+</template>
+
+<template name="loginButtonsBackToLoginLink">
+    <button id="back-to-login-link" class="btn -secondary">Annuleren</button>
+</template>
+
+<template name="loginButtonsMessages">
+    {{#if errorMessage}}
+        <div class="login-form__messages -danger">
+            {{errorMessage}}
+        </div>
+    {{/if}}
+    {{#if infoMessage}}
+        <div class="login-form__messages -success">
+            {{infoMessage}}
+        </div>
+    {{/if}}
+</template>

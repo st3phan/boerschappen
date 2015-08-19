@@ -1,0 +1,25 @@
+main {
+    // @include transition(transform 0.5s);
+    // @include translateZ(0);
+    // @include backface-visibility(hidden);
+
+    // .-nav-is-visible & {
+    //     @include translateY(80px);
+
+    //     @media #{$large-up} {
+    //         @include translateY(170px);
+    //     }
+    // }
+}
+
+.admin-buttons {
+    margin-top: $distance;
+
+    .btn {
+        display: block;
+
+        & + .btn {
+            margin-top: $distance/2;
+        }
+    }
+}

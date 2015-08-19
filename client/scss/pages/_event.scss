@@ -1,0 +1,32 @@
+.p-event {
+    padding: $distance $gutter;
+}
+
+.event {
+
+    .product__header {
+        text-align: center;
+    }
+
+    &__comments {
+        margin: $distance 0;
+    }
+
+    &__toggle-comments-submit {
+        @include clear;
+        display: block;
+    }
+
+    &__comments-submit {
+        @extend .module;
+        display: none;
+
+        .btn {
+            margin-top: $distance/2;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<template name="adminEvents">
+    <div class="p-admin">
+        {{setTitle 'Boerschappen' 'Admin'}}
+        <div class="module">
+            <ol>
+                <li><a href="{{pathFor 'eventSubmit'}}" class="btn -block">Nieuwe boerschappen</a></li>
+                {{#each .}}
+                    <li><a href="{{pathFor 'eventEdit'}}" class="btn -secondary -block">{{title}}</a></li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</template>
